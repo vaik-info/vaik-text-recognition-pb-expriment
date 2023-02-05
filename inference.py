@@ -41,7 +41,7 @@ def main(input_saved_model_dir_path, input_classes_json_path, input_image_dir_pa
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='inference')
     parser.add_argument('--input_saved_model_dir_path', type=str,
-                        default='/home/kentaro/.vaik_text_recognition_pb_trainer/output_model/2023-02-05-14-37-56/step-5000_batch-16_epoch-8_loss_2.5069_val_loss_1.3024')
+                        default='~/.vaik_text_recognition_pb_trainer/output_model/2023-02-05-14-37-56/step-5000_batch-16_epoch-8_loss_2.5069_val_loss_1.3024')
     parser.add_argument('--input_classes_json_path', type=str,
                         default=os.path.join(os.path.dirname(__file__), 'test_default_fonts_images/jpn_character.json'))
     parser.add_argument('--input_image_dir_path', type=str,
