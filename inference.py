@@ -48,7 +48,7 @@ if __name__ == '__main__':
                         default=os.path.join(os.path.dirname(__file__), 'test_default_fonts_images'))
     parser.add_argument('--output_json_dir_path', type=str,
                         default='~/.vaik_text_recognition_pb_experiment/test_default_fonts_images_inference')
-    parser.add_argument('--batch_size', type=int, default=8)
+    parser.add_argument('--batch_size', type=int, default=1)
     args = parser.parse_args()
 
     args.input_saved_model_dir_path = os.path.expanduser(args.input_saved_model_dir_path)
