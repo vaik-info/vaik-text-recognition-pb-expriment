@@ -1,0 +1,3 @@
+Pillow>=9.4.0
+python-Levenshtein>=0.20.9
+vaik-text-recognition-pb-inference @ git+https://github.com/vaik-info/vaik-text-recognition-pb-inference.git@f2516ab7640e2fdf96787726859c77f3def6bec1
