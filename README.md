@@ -147,7 +147,7 @@ python inference.py --input_saved_model_dir_path '~/.vaik_text_recognition_pb_tr
 ```
 -----
 
-### Calc ACC
+### Calc Levenshtein Ratio
 
 ```shell
 python calc_levenshtein_ratio.py --input_json_dir_path '~/.vaik_text_recognition_pb_experiment/test_default_fonts_images_inference'
