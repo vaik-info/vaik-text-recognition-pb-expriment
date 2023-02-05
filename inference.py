@@ -8,10 +8,10 @@ from PIL import Image
 import numpy as np
 
 
-def main(input_saved_model_dir_path, input_classes_json_path, input_image_dir_path, output_json_dir_path, batch_size):
+def main(input_saved_model_dir_path, input_classes_json_path, input_image_dir_path, output_json_dir_path, batch_size, beam_width):
     os.makedirs(output_json_dir_path, exist_ok=True)
     classes = PbModel.char_json_read(input_classes_json_path)
-    model = PbModel(input_saved_model_dir_path, classes)
+    model = PbModel(input_saved_model_dir_path, classes, top_paths=3, beam_width=beam_width)
 
     types = ('*.jpg', '*.jpeg', '*.png', '*.JPG', '*.JPEG', '*.PNG')
     image_path_list = []
@@ -41,14 +41,15 @@ def main(input_saved_model_dir_path, input_classes_json_path, input_image_dir_pa
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='inference')
     parser.add_argument('--input_saved_model_dir_path', type=str,
-                        default='~/.vaik_text_recognition_pb_trainer/output_model/2023-02-04-20-58-00/step-5000_batch-16_epoch-24_loss_0.3250_val_loss_0.1010')
+                        default='/home/kentaro/.vaik_text_recognition_pb_trainer/output_model/2023-02-05-14-37-56/step-5000_batch-16_epoch-8_loss_2.5069_val_loss_1.3024')
     parser.add_argument('--input_classes_json_path', type=str,
                         default=os.path.join(os.path.dirname(__file__), 'test_default_fonts_images/jpn_character.json'))
     parser.add_argument('--input_image_dir_path', type=str,
                         default=os.path.join(os.path.dirname(__file__), 'test_default_fonts_images'))
     parser.add_argument('--output_json_dir_path', type=str,
                         default='~/.vaik_text_recognition_pb_experiment/test_default_fonts_images_inference')
-    parser.add_argument('--batch_size', type=int, default=1)
+    parser.add_argument('--batch_size', type=int, default=8)
+    parser.add_argument('--beam_width', type=int, default=10)
     args = parser.parse_args()
 
     args.input_saved_model_dir_path = os.path.expanduser(args.input_saved_model_dir_path)
