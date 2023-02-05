@@ -14,9 +14,9 @@ pip install -r requirements.txt
 ### Create json file
 
 ```shell
-python inference.py --input_saved_model_dir_path '~/.vaik_text_recognition_pb_trainer/output_model/2023-02-04-20-58-00/step-5000_batch-16_epoch-24_loss_0.3250_val_loss_0.1010' \
-                --input_classes_json_path '~/vaik-text-recognition-pb-trainer/test_default_fonts_images/jpn_character.json' \
-                --input_image_dir_path '~/vaik-text-recognition-pb-trainer/test_default_fonts_images/' \
+python inference.py --input_saved_model_dir_path '~/.vaik_text_recognition_pb_experiment/output_model/2023-02-04-20-58-00/step-5000_batch-16_epoch-24_loss_0.3250_val_loss_0.1010' \
+                --input_classes_json_path '~/vaik-text-recognition-pb-experiment/test_default_fonts_images/jpn_character.json' \
+                --input_image_dir_path '~/vaik-text-recognition-pb-experiment/test_default_fonts_images/' \
                 --output_json_dir_path '~/.vaik_text_recognition_pb_experiment/test_default_fonts_images_inference'
 ```
 
