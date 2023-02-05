@@ -8,10 +8,10 @@ from PIL import Image
 import numpy as np
 
 
-def main(input_saved_model_dir_path, input_classes_json_path, input_image_dir_path, output_json_dir_path, batch_size, beam_width):
+def main(input_saved_model_dir_path, input_classes_json_path, input_image_dir_path, output_json_dir_path, batch_size, top_path, beam_width):
     os.makedirs(output_json_dir_path, exist_ok=True)
     classes = PbModel.char_json_read(input_classes_json_path)
-    model = PbModel(input_saved_model_dir_path, classes, top_paths=3, beam_width=beam_width)
+    model = PbModel(input_saved_model_dir_path, classes, top_paths=top_path, beam_width=beam_width)
 
     types = ('*.jpg', '*.jpeg', '*.png', '*.JPG', '*.JPEG', '*.PNG')
     image_path_list = []
@@ -48,8 +48,9 @@ if __name__ == '__main__':
                         default=os.path.join(os.path.dirname(__file__), 'test_default_fonts_images'))
     parser.add_argument('--output_json_dir_path', type=str,
                         default='~/.vaik_text_recognition_pb_experiment/test_default_fonts_images_inference')
-    parser.add_argument('--batch_size', type=int, default=8)
-    parser.add_argument('--beam_width', type=int, default=10)
+    parser.add_argument('--batch_size', type=int, default=4)
+    parser.add_argument('--top_path', type=int, default=1)
+    parser.add_argument('--beam_width', type=int, default=1)
     args = parser.parse_args()
 
     args.input_saved_model_dir_path = os.path.expanduser(args.input_saved_model_dir_path)
