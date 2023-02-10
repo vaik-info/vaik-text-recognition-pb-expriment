@@ -22,7 +22,7 @@ def main(input_saved_model_dir_path, input_classes_json_path, input_image_dir_pa
         image = np.asarray(Image.open(image_path).convert('RGB'))
         image_list.append(image)
 
-    output, raw_pred = model.inference(image_list[1:2], batch_size=1)
+    output, raw_pred = model.inference(image_list[6:7], batch_size=1)
 
     import time
     start = time.time()
