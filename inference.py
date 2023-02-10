@@ -49,8 +49,8 @@ if __name__ == '__main__':
     parser.add_argument('--output_json_dir_path', type=str,
                         default='~/.vaik_text_recognition_pb_experiment/test_default_fonts_images_inference')
     parser.add_argument('--batch_size', type=int, default=4)
-    parser.add_argument('--top_path', type=int, default=1)
-    parser.add_argument('--beam_width', type=int, default=1)
+    parser.add_argument('--top_path', type=int, default=3)
+    parser.add_argument('--beam_width', type=int, default=3)
     parser.add_argument('--softmax_threshold', type=float, default=0.05)
     args = parser.parse_args()
 
